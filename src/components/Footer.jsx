@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <>
-        <nav className='navbar  fixed-bottom navbar-expand-lg bg-secondary-subtle'>
+        <nav className='navbar  fixed-bottom navbar-expand-lg bg-dark text-white'>
             footer
         </nav>
     </>
