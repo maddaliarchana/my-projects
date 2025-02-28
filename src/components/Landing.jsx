@@ -1,10 +1,12 @@
 import React from 'react'
-// import Computer1 from '../assets/images/Computers/1.jpg'
-// import Computer2 from '../assets/images/Computers/2.jpg'
-// import Computer3 from '../assets/images/Computers/3.jpg'
-// import Computer4 from '../assets/images/Computers/4.jpg'
-import logo from '../assets/images/logo1.jpeg'
-import logo1 from '../assets/images/logo.jpeg' 
+  import logo from '../assets/images/logo1.jpeg'
+ import logo1 from '../assets/images/logo.jpeg' 
+import {mobileData} from '../assets/data/mobiles';
+
+
+const mobile=mobileData.slice(0,5);
+console.log(mobile);
+
 
 const Landing = () => {
 
@@ -12,7 +14,7 @@ const Landing = () => {
     
   return (
     <>
-
+<div className="container">
 <div id="carouselExampleIndicators" className="carousel slide">
   <div className="carousel-indicators">
     <button
@@ -23,29 +25,33 @@ const Landing = () => {
       aria-current="true"
       aria-label="Slide 1"
     />
+     {mobileData.map((list)=>{
+      return(
     <button
       type="button"
       data-bs-target="#carouselExampleIndicators"
-      data-bs-slide-to={1}
+      data-bs-slide-to={list.id}
       aria-label="Slide 2"
     />
-    <button
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide-to={2}
-      aria-label="Slide 3"
-    />
+  )})}
+    
   </div>
   <div className="carousel-inner container-fluid">
     <div className="carousel-item active">
       <img src={logo} className="d-block w-100" alt="..." />
     </div>
-    <div className="carousel-item">
-      <img src={logo1} className="d-block w-100" alt="..." />
-    </div>
-    <div className="carousel-item">
-      <img src={logo} className="d-block w-100" alt="..." />
-    </div>
+   
+    
+    {mobileData.map((list)=>{
+      return(
+        <div className="carousel-item">
+        
+      <img src={list.image} className=" fluid" alt={list.id} />
+    
+      </div>
+     )})}
+    
+    
   </div>
   <button
     className="carousel-control-prev"
@@ -67,7 +73,7 @@ const Landing = () => {
   </button>
 </div>
 
-      
+</div>
     </>
   )
 }
